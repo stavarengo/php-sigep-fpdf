@@ -10,6 +10,6 @@
     ],
     "require": {},
     "autoload": {
-        "psr-4": {"PhpSigepFPDF\\": "src/"}
+        "psr-0": {"PhpSigepFPDF": ""}
     }
 }
