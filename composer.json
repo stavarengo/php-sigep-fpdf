@@ -10,6 +10,6 @@
     ],
     "require": {},
     "autoload": {
-        "psr-0": {"PhpSigepFPDF": ""}
+        "classmap": ["PhpSigepFPDF.php"]
     }
 }
