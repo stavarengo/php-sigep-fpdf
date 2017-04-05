@@ -1210,7 +1210,7 @@ function _dounderline($x, $y, $txt)
 function _parsejpg($file)
 {
 	// Extract info from a JPEG file
-	$a = getimagesize($file);
+	$a = @getimagesize($file);
 	if(!$a)
 		$this->Error('Missing or incorrect image file: '.$file);
 	if($a[2]!=2)
