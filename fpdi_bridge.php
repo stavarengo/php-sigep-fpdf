@@ -16,15 +16,15 @@
  * This way it is possible to use FPDI for both FPDF and TCPDF with one FPDI version.
  */
 
-if (!class_exists('FPDF')) {
+if (!class_exists('FPDFSigep')) {
     require_once 'fpdf.php';
 }
 
-if (!class_exists('TCPDF', false)) {
+if (!class_exists('TCPDFSigep', false)) {
     /**
      * Class fpdi_bridge
      */
-    class fpdi_bridge extends FPDF
+    class fpdi_bridgeSigep extends FPDFSigep
     {
         // empty body
     }
@@ -34,7 +34,7 @@ if (!class_exists('TCPDF', false)) {
     /**
      * Class fpdi_bridge
      */
-    class fpdi_bridge extends TCPDF
+    class fpdi_bridgeSigep extends TCPDFSigep
     {
         /**
          * Array of Tpl-Data

@@ -8,14 +8,14 @@
  * @version   1.6.1
  */
 
-if (!class_exists('FPDF_TPL')) {
+if (!class_exists('FPDF_TPLSigep')) {
     require_once('fpdf_tpl.php');
 }
 
 /**
  * Class FPDI
  */
-class FPDI extends FPDF_TPL
+class FPDISigep extends FPDF_TPLSigep
 {
     /**
      * FPDI version

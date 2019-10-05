@@ -8,14 +8,14 @@
  * @version   1.6.1
  */
 
-if (!class_exists('pdf_parser')) {
+if (!class_exists('pdf_parserSigep')) {
     require_once('pdf_parser.php');
 }
 
 /**
  * Class fpdi_pdf_parser
  */
-class fpdi_pdf_parser extends pdf_parser
+class fpdi_pdf_parserSigep extends pdf_parserSigep
 {
     /**
      * Pages
