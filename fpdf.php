@@ -73,7 +73,7 @@ var $PDFVersion;         // PDF version number
 *                               Public methods                                 *
 *                                                                              *
 *******************************************************************************/
-function FPDF($orientation='P', $unit='mm', $size='A4')
+function __construct($orientation='P', $unit='mm', $size='A4')
 {
 	// Some checks
 	$this->_dochecks();
@@ -391,7 +391,7 @@ function SetDrawColor($r, $g=null, $b=null)
 {
 	// Set color for all stroking operations
 	if(($r==0 && $g==0 && $b==0) || $g===null)
-		$this->DrawColor = sprintf('%.3F G',$r/255);
+		@$this->DrawColor = sprintf('%.3F G',$r/255);
 	else
 		$this->DrawColor = sprintf('%.3F %.3F %.3F RG',$r/255,$g/255,$b/255);
 	if($this->page>0)
@@ -414,7 +414,7 @@ function SetTextColor($r, $g=null, $b=null)
 {
 	// Set color for text
 	if(($r==0 && $g==0 && $b==0) || $g===null)
-		$this->TextColor = sprintf('%.3F g',$r/255);
+		@$this->TextColor = sprintf('%.3F g',$r/255);
 	else
 		$this->TextColor = sprintf('%.3F %.3F %.3F rg',$r/255,$g/255,$b/255);
 	$this->ColorFlag = ($this->FillColor!=$this->TextColor);
