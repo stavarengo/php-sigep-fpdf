@@ -9,7 +9,7 @@
 
 define('FPDF_VERSION','1.7');
 
-class FPDF
+class FPDFSigep
 {
 var $page;               // current page number
 var $n;                  // current object number

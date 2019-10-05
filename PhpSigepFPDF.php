@@ -2,6 +2,6 @@
 
 require_once __DIR__ . '/fpdi.php';
 
-class PhpSigepFPDF extends FPDI
+class PhpSigepFPDF extends FPDISigep
 {
 }

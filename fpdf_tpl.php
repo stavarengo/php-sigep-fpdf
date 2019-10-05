@@ -8,14 +8,14 @@
  * @version   1.6.1
  */
 
-if (!class_exists('fpdi_bridge')) {
+if (!class_exists('fpdi_bridgeSigep')) {
     require_once('fpdi_bridge.php');
 }
 
 /**
  * Class FPDF_TPL
  */
-class FPDF_TPL extends fpdi_bridge
+class FPDF_TPLSigep extends fpdi_bridgeSigep
 {
     /**
      * Array of template data

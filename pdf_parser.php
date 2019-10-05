@@ -11,7 +11,7 @@
 /**
  * Class pdf_parser
  */
-class pdf_parser
+class pdf_parserSigep
 {
     /**
      * Type constant
