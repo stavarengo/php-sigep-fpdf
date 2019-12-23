@@ -128,7 +128,7 @@ class pdf_parserSigep
     /**
      * PDF Context
      *
-     * @var pdf_context
+     * @var pdf_contextSigep
      */
     protected $_c;
 
@@ -185,10 +185,10 @@ class pdf_parserSigep
 
         $this->getPdfVersion();
 
-        if (!class_exists('pdf_context')) {
+        if (!class_exists('pdf_contextSigep')) {
             require_once('pdf_context.php');
         }
-        $this->_c = new pdf_context($this->_f);
+        $this->_c = new pdf_contextSigep($this->_f);
 
         // Read xref-Data
         $this->_xref = array();
@@ -421,7 +421,7 @@ class pdf_parserSigep
     /**
      * Reads a PDF value
      *
-     * @param pdf_context $c
+     * @param pdf_contextSigep $c
      * @param string $token A token
      * @return mixed
      * @throws Exception
@@ -726,7 +726,7 @@ class pdf_parserSigep
     /**
      * Reads a token from the context
      *
-     * @param pdf_context $c
+     * @param pdf_contextSigep $c
      * @return mixed
      */
     protected function _readToken($c)
@@ -852,14 +852,14 @@ class pdf_parserSigep
         if (isset($obj[1][1]['/Filter'])) {
             $filter = $obj[1][1]['/Filter'];
 
-            if ($filter[0] == pdf_parser::TYPE_OBJREF) {
+            if ($filter[0] == pdf_parserSigep::TYPE_OBJREF) {
                 $tmpFilter = $this->resolveObject($filter);
                 $filter = $tmpFilter[1];
             }
 
-            if ($filter[0] == pdf_parser::TYPE_TOKEN) {
+            if ($filter[0] == pdf_parserSigep::TYPE_TOKEN) {
                 $filters[] = $filter;
-            } else if ($filter[0] == pdf_parser::TYPE_ARRAY) {
+            } else if ($filter[0] == pdf_parserSigep::TYPE_ARRAY) {
                 $filters = $filter[1];
             }
         }

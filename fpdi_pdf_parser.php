@@ -126,7 +126,7 @@ class fpdi_pdf_parserSigep extends pdf_parserSigep
         // parent object.
         if (isset($obj[1][1]['/Resources'])) {
             $res = $this->resolveObject($obj[1][1]['/Resources']);
-            if ($res[0] == pdf_parser::TYPE_OBJECT)
+            if ($res[0] == pdf_parserSigep::TYPE_OBJECT)
                 return $res[1];
             return $res;
         }
@@ -136,7 +136,7 @@ class fpdi_pdf_parserSigep extends pdf_parserSigep
         }
 
         $res = $this->_getPageResources($obj[1][1]['/Parent']);
-        if ($res[0] == pdf_parser::TYPE_OBJECT)
+        if ($res[0] == pdf_parserSigep::TYPE_OBJECT)
             return $res[1];
         return $res;
     }
@@ -172,14 +172,14 @@ class fpdi_pdf_parserSigep extends pdf_parserSigep
     {
         $contents = array();
         
-        if ($contentRef[0] == pdf_parser::TYPE_OBJREF) {
+        if ($contentRef[0] == pdf_parserSigep::TYPE_OBJREF) {
             $content = $this->resolveObject($contentRef);
-            if ($content[1][0] == pdf_parser::TYPE_ARRAY) {
+            if ($content[1][0] == pdf_parserSigep::TYPE_ARRAY) {
                 $contents = $this->_getPageContent($content[1]);
             } else {
                 $contents[] = $content;
             }
-        } else if ($contentRef[0] == pdf_parser::TYPE_ARRAY) {
+        } else if ($contentRef[0] == pdf_parserSigep::TYPE_ARRAY) {
             foreach ($contentRef[1] AS $tmp_content_ref) {
                 $contents = array_merge($contents, $this->_getPageContent($tmp_content_ref));
             }
@@ -207,12 +207,12 @@ class fpdi_pdf_parserSigep extends pdf_parserSigep
             $box = $page[1][1][$boxIndex];
         }
         
-        if (!is_null($box) && $box[0] == pdf_parser::TYPE_OBJREF) {
+        if (!is_null($box) && $box[0] == pdf_parserSigep::TYPE_OBJREF) {
             $tmp_box = $this->resolveObject($box);
             $box = $tmp_box[1];
         }
             
-        if (!is_null($box) && $box[0] == pdf_parser::TYPE_ARRAY) {
+        if (!is_null($box) && $box[0] == pdf_parserSigep::TYPE_ARRAY) {
             $b = $box[1];
             return array(
                 'x' => $b[0][1] / $k,
@@ -295,7 +295,7 @@ class fpdi_pdf_parserSigep extends pdf_parserSigep
         $obj = $this->resolveObject($obj);
         if (isset($obj[1][1]['/Rotate'])) {
             $res = $this->resolveObject($obj[1][1]['/Rotate']);
-            if ($res[0] == pdf_parser::TYPE_OBJECT)
+            if ($res[0] == pdf_parserSigep::TYPE_OBJECT)
                 return $res[1];
             return $res;
         }
@@ -305,7 +305,7 @@ class fpdi_pdf_parserSigep extends pdf_parserSigep
         }
 
         $res = $this->_getPageRotation($obj[1][1]['/Parent']);
-        if ($res[0] == pdf_parser::TYPE_OBJECT)
+        if ($res[0] == pdf_parserSigep::TYPE_OBJECT)
             return $res[1];
 
         return $res;
